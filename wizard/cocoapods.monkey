@@ -8,8 +8,8 @@ Class CocoaPods
     Function Exec:Void(cmd$, app:App)
         Local execute := "cd ~q" + app.TargetDir("").GetPath() + "~q"
         execute += " && export LANG=en_US.UTF-8"
-        execute += " && ~~/.rbenv/shims/pod " + cmd
-        If Execute(execute) <> 0 Then Error "ERROR: pod " + cmd
+        execute += " && pod " + cmd
+        If Execute(execute) <> 0 Then Error "ERROR while: pod " + cmd
     End
 
     Function AddDependency:Void(dependency$, app:App, version$ = "0")
